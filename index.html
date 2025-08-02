@@ -699,48 +699,58 @@
         }
 
         .menu-toggle {
-            display: none;
-            font-size: 26px;
-            color: white;
-            cursor: pointer;
-        }
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
 
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
+@media (max-width: 768px) {
+  .header-container {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: var(--primary);
-                position: absolute;
-                top: 65px;
-                left: 0;
-                z-index: 999;
-            }
+  .menu-toggle {
+    display: block;
+  }
 
-            nav ul.showing {
-                display: flex;
-            }
+  nav {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+  }
 
-            nav ul li {
-                margin: 15px 0;
-                text-align: center;
-            }
-        }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  nav ul.showing {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <!-- <header>
         <div class="container header-container">
             <div class="logo">
                 <i class="fas fa-shield-alt"></i>
                 <span>Zash Security</span>
             </div>
-            <!-- <nav>
+             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -748,7 +758,7 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav> -->
+            </nav> 
             <div class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
             </div>
@@ -763,7 +773,29 @@
             </nav>
                         
         </div>
-    </header>
+    </header> -->
+
+    <header>
+  <div class="container header-container">
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="logo">
+      <i class="fas fa-shield-alt"></i>
+      <span>Zash Security</span>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1364,10 +1396,24 @@
             }
         });
 
-        document.getElementById('mobile-menu').addEventListener('click', function () {
-            const navUl = document.querySelector('nav ul');
-            navUl.classList.toggle('showing');
-        });
+        // Mobile menu toggle with icon swap
+const menuToggle = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('nav ul');
+const menuIcon = menuToggle.querySelector('i');
+
+menuToggle.addEventListener('click', function () {
+    navMenu.classList.toggle('showing');
+
+    // Toggle icon between bars and times
+    if (navMenu.classList.contains('showing')) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+    } else {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
+});
+
     </script>
 </body>
 </html>
