@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zash Security | Professional Security Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0f3460;
+            --secondary: #e94560;
+            --accent: #16213e;
+            --light: #f5f5f5;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(111, 170, 243, 60%), rgba(15, 52, 96, 45%)), 
+                        url('assets/bg-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #c13651;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-icon {
+            background: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--secondary);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: padding-left 0.3s;
+        }
+
+        .service-link:hover {
+            padding-left: 5px;
+        }
+
+        .service-link i {
+            margin-left: 5px;
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            background: white;
+            padding: 100px 0;
+            display: none;
+        }
+
+        .service-detail.active {
+            display: block;
+        }
+
+        .service-detail-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .service-detail-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-detail-content {
+            flex: 1;
+        }
+
+        .service-detail-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-detail-content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 25px 0 15px;
+        }
+
+        .service-detail-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .service-detail-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-detail-content li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .back-to-services {
+            margin-top: 30px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-card:before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+        }
+
+        .client img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .client-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .client-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-item div h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-item div p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .service-detail-container {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-outline {
+                display: block;
+                margin: 15px auto 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>Zash Security</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>SIA SECURITY GUARD SERVICES IN BRISTOL AND SOUTH WEST AREAS</h1>
+            <p>Zash Security Services offers 24/7 security guard hire across the Bristol and south west areas. Our SIA-licensed guards are trained to provide short or long-term security solutions</p>
+            <a href="#contact" class="btn">Get a Free Quote</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Zash Security</h2>
+                <p>Leading security provider with over 15 years of experience protecting homes and businesses</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Commitment to You</h3>
+                    <p>Since opening the doors to our business in the United Kingdom, At Zash Security Services, we are dedicated to providing top-quality security solutions tailored to your needs</p>
+                    <p>Our SIA-licensed guards are available 24/7, ensuring the safety and protection of your assets, whether through manned security, corporate security, or event security.</p>
+                    <p>We strive to deliver reliable, professional, and effective security services to safeguard you from hazards.</p>
+                    <a href="#contact" class="btn">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Security team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Security Services</h2>
+                <p>Comprehensive security solutions designed to protect your assets and ensure your safety</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" onclick="showServiceDetail('manned-guarding')">
+                    <div class="service-image">
+                        <img src="assets/mannedgaurding.jpg" alt="Manned Guarding">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Manned Guarding</h3>
+                        <p>Professional security personnel for residential, commercial, and industrial properties.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="showServiceDetail('construction-site')">
+                    <div class="service-image">
+                        <img src="assets/constructionSiteSecurity.jpg" alt="Construction Site Security">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Construction Site Security</h3>
+                        <p>Comprehensive security solutions to protect construction sites from theft and vandalism.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="showServiceDetail('music-event')">
+                    <div class="service-image">
+                        <img src="assets/musicEventSec.jpg" alt="Music Event Security">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Music Event Security</h3>
+                        <p>Specialized security services for concerts, festivals, and live music events.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="showServiceDetail('sport-event')">
+                    <div class="service-image">
+                        <img src="assets/sportsEventSec.jpg" alt="Sport Event Security">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-football-ball"></i>
+                        </div>
+                        <h3>Sport Event Security</h3>
+                        <p>Professional security management for sporting events and stadium security.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="showServiceDetail('behavioral-security')">
+                    <div class="service-image">
+                        <img src="assets/behavioralSec.jpg" alt="Behavioral Security">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Behavioral Security</h3>
+                        <p>Advanced threat detection through behavioral analysis and observation techniques.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="showServiceDetail('cctv-monitoring')">
+                    <div class="service-image">
+                        <img src="assets/cctvMonitoringSec.jpg" alt="CCTV Monitoring">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>CCTV Monitoring</h3>
+                        <p>24/7 surveillance monitoring with advanced camera systems and remote access.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail Sections -->
+    <!-- Manned Guarding Detail -->
+    <section id="manned-guarding" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/mannedgaurding.jpg" alt="Manned Guarding">
+                </div>
+                <div class="service-detail-content">
+                    <h2>Manned Guarding</h2>
+                    <p>We provides comprehensive manned SIA-licensed personnel trained to monitor premises and deter unauthorized access. Our services include access control, incident response to security breaches, and customer assistance to create a safe environment. We offer tailored security plans and ensuring enhanced safety for commercial, residential, and industrial locations.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>24/7 security coverage tailored to your needs</li>
+                        <li>Highly trained and SIA licensed security personnel</li>
+                        <li>Access control and visitor management</li>
+                        <li>Regular patrols and incident reporting</li>
+                        <li>Emergency response protocols</li>
+                        <li>Customer service excellence</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>Corporate offices, retail stores, industrial facilities, residential complexes, hospitals, educational institutions, and any location requiring a physical security presence.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Construction Site Security Detail -->
+    <section id="construction-site" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/constructionSiteSecurity.jpg" alt="Construction Site Security">
+                </div>
+                <div class="service-detail-content">
+                    <h2>Construction Site Security</h2>
+                    <p>For construction site security we provide manned security with SIA-licensed guards, CCTV surveillance, and access control. Our mobile patrols ensure regular monitoring, while thorough risk assessments tailor security measures to your needs. With quick emergency response protocols in place, we are committed to protecting your site from hazards and unauthorized access.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>24/7 site surveillance and patrols</li>
+                        <li>Access control for workers and vehicles</li>
+                        <li>Equipment and materials inventory management</li>
+                        <li>Perimeter security and fencing monitoring</li>
+                        <li>CCTV integration with remote monitoring</li>
+                        <li>Health and safety compliance support</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>Building construction sites, infrastructure projects, renovation projects, and any location with valuable equipment and materials that need protection.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Event Security Detail -->
+    <section id="music-event" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/musicEventSec.jpg" alt="Music Event Security">
+                </div>
+                <div class="service-detail-content">
+                    <h2>Music Event Security</h2>
+                    <p>Our music event security team specializes in creating safe environments for concerts, festivals, and live performances. We understand the unique challenges of event security and provide comprehensive solutions that ensure attendee safety while maintaining a positive experience.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Crowd management and control</li>
+                        <li>Access control and ticket verification</li>
+                        <li>Backstage and VIP area protection</li>
+                        <li>Emergency response planning</li>
+                        <li>Asset protection for equipment and merchandise</li>
+                        <li>Collaboration with event organizers and local authorities</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>Concerts, music festivals, live performances, nightclubs, and any event with large crowds and high-profile performers.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sport Event Security Detail -->
+    <section id="sport-event" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/sportsEventSec.jpg" alt="Sport Event Security">
+                </div>
+                <div class="service-detail-content">
+                    <h2>Sport Event Security</h2>
+                    <p>Our sports event security services ensure the safety of athletes, spectators, and staff at sporting events of all sizes. From local matches to major tournaments, we provide comprehensive security solutions that address the unique challenges of sports venues.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Stadium and venue security management</li>
+                        <li>Crowd control and spectator safety</li>
+                        <li>Player and VIP protection</li>
+                        <li>Emergency evacuation planning</li>
+                        <li>Anti-terrorism measures</li>
+                        <li>Collaboration with stadium management and emergency services</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>Football matches, basketball games, tennis tournaments, marathons, and any sporting event with spectators and participants.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behavioral Security Detail -->
+    <section id="behavioral-security" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/behavioralSec.jpg" alt="Behavioral Security">
+                </div>
+                <div class="service-detail-content">
+                    <h2>Behavioral Security</h2>
+                    <p>Our behavioral security services focus on identifying potential threats through advanced observation techniques and behavioral analysis. Our trained specialists can detect suspicious behavior patterns before they escalate into security incidents.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Behavioral threat assessment</li>
+                        <li>Suspicious activity recognition</li>
+                        <li>Non-verbal communication analysis</li>
+                        <li>Crowd behavior monitoring</li>
+                        <li>De-escalation techniques</li>
+                        <li>Integration with traditional security measures</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>High-security facilities, transportation hubs, large public events, corporate environments, and any location where early threat detection is critical.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CCTV Monitoring Detail -->
+    <section id="cctv-monitoring" class="service-detail">
+        <div class="container">
+            <div class="service-detail-container">
+                <div class="service-detail-image">
+                    <img src="assets/cctvMonitoringSec.jpg" alt="CCTV Monitoring">
+                </div>
+                <div class="service-detail-content">
+                    <h2>CCTV Monitoring</h2>
+                    <p>Our CCTV monitoring services provide 24/7 surveillance of your premises using state-of-the-art camera systems. Our trained operators monitor feeds in real-time, detecting and responding to potential security threats before they become incidents.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>24/7 remote monitoring by trained operators</li>
+                        <li>High-definition camera systems with night vision</li>
+                        <li>Motion detection and alerts</li>
+                        <li>Remote access for authorized personnel</li>
+                        <li>Video analytics and facial recognition</li>
+                        <li>Integration with alarm and access control systems</li>
+                    </ul>
+                    
+                    <h3>Ideal For</h3>
+                    <p>Retail stores, office buildings, industrial facilities, parking lots, residential complexes, and any location requiring constant surveillance.</p>
+                    
+                    <div class="back-to-services">
+                        <a href="#services" class="btn">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5000+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Monitoring</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Customer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from businesses and homeowners who trust Zash Security with their security needs</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Zash Security has been protecting our retail chain for over 5 years. Their professional guards and rapid response times have significantly reduced theft and provided peace of mind for our staff and customers."</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        <div class="client-info">
+                            <h4>Michael Roberts</h4>
+                            <p>Retail Manager, National Chain</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The construction site security provided by Zash Security was exceptional. They prevented multiple theft attempts and helped us complete our project on schedule. Highly recommend their services!"</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                        <div class="client-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Project Manager, BuildRight Construction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"We hired Zash Security for our music festival, and they exceeded all expectations. Their team handled crowd control flawlessly and ensured a safe environment for all attendees and performers."</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Client">
+                        <div class="client-info">
+                            <h4>David Chen</h4>
+                            <p>Event Director, Summer Sounds Festival</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for a free security consultation and quote</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>BS5 8AH Bristol, UK, United Kingdom</p>
+                        </div>
+                    </div>
+                    <!-- <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>+447454392199</p>
+                        </div>
+                    </div> -->
+                    <div class="contact-item">
+                        <a href="https://wa.me/447454392199" target="_blank" style="text-decoration: none; color: inherit;">
+                            <i class="fab fa-whatsapp" style="font-size: 24px; color: #25D366;"></i>
+                        </a>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/447454392199" target="_blank" style="text-decoration: none; color: inherit;">
+                                <p>+44 7454 392199</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>security@zashservice.co.uk</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+                                <option value="">Select a Service</option>
+                                <option value="manned-guarding">Manned Guarding</option>
+                                <option value="construction-site">Construction Site Security</option>
+                                <option value="music-event">Music Event Security</option>
+                                <option value="sport-event">Sport Event Security</option>
+                                <option value="behavioral-security">Behavioral Security</option>
+                                <option value="cctv-monitoring">CCTV Monitoring</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your security needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Request Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Zash Security</h3>
+                    <p>Zash Security Services is a professional security provider dedicated to safeguarding people, property, and assets across various sectors. We offer a comprehensive range of services, including manned security, corporate security, event security, and mobile security patrols. Our SIA-licensed guards are thoroughly vetted to ensure they align with our clients' corporate image while providing top-notch protection.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showServiceDetail('manned-guarding')">Manned Guarding</a></li>
+                        <li><a href="#" onclick="showServiceDetail('construction-site')">Construction Site Security</a></li>
+                        <li><a href="#" onclick="showServiceDetail('music-event')">Music Event Security</a></li>
+                        <li><a href="#" onclick="showServiceDetail('sport-event')">Sport Event Security</a></li>
+                        <li><a href="#" onclick="showServiceDetail('behavioral-security')">Behavioral Security</a></li>
+                        <li><a href="#" onclick="showServiceDetail('cctv-monitoring')">CCTV Monitoring</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> BS5 8AH Bristol, UK, United Kingdom</li>
+                       <li>
+                            <a href="https://wa.me/447454392199" target="_blank" style="text-decoration: none; color: inherit;">
+                                <i class="fab fa-whatsapp" style="color: #25D366;"></i> +44 7454 392199
+                            </a>
+                        </li>
+                        <li><i class="fas fa-envelope"></i>security@zashservice.co.uk</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Zash Security. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Show service detail section
+        function showServiceDetail(serviceId) {
+            // Hide all service detail sections
+            const allDetails = document.querySelectorAll('.service-detail');
+            allDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Show the selected service detail
+            const selectedDetail = document.getElementById(serviceId);
+            if (selectedDetail) {
+                selectedDetail.classList.add('active');
+                // Scroll to the service detail section
+                window.scrollTo({
+                    top: selectedDetail.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !email || !phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Here you would normally send the form data to a server
+            // For demo purposes, we'll just show a success message
+            alert(`Thank you, ${name}! Your request has been submitted. We'll contact you soon about your ${service} security needs.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 52, 96, 0.95)';
+                header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'var(--primary)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
