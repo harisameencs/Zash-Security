@@ -1308,10 +1308,6 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your security needs..."></textarea>
         </div>
-
-        <!-- Google reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6LeuUaUrAAAAAE6fWm2FCP5QUUnItTxfLWfcKmiA"></div>
-
         <button type="submit" class="btn">Request Free Quote</button>
     </form>
 </div>
@@ -1323,11 +1319,6 @@
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Check reCAPTCHA
-        if (grecaptcha.getResponse() === "") {
-            alert("Please verify you are not a robot.");
-            return;
-        }
 
         // Optional: simple rate limiting
         const lastSubmit = localStorage.getItem('lastSubmit');
